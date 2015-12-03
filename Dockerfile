@@ -38,7 +38,7 @@ RUN cd /opt/pfring && \
     cd /opt/pfring/PF_RING-6.2.0/kernel && \
     mkdir -p /lib/modules/`uname -r`/ && \
     ln -s /usr/src/kernels/linux/ /lib/modules/`uname -r`/build && \
-    make
+    make && make install
 
 # Install the module 
 CMD ["modprobe", "pf_ring"]
