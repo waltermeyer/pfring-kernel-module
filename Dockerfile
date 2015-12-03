@@ -29,7 +29,7 @@ RUN cd /usr/src/kernels && \
 # Compilation prep
 RUN cd /usr/src/kernels/linux && \
     git checkout -b stable v`uname -r | sed 's/-.*//'` && \
-    zcat /proc/config.gz > .config && make modules_prepare
+    zcat /proc/config.gz > .config && make modules_prepare  && \
     sed -i "s/$(uname -r | sed 's/-.*//')/$(uname -r)/g" include/generated/utsrelease.h
 
 # Compilation
